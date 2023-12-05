@@ -1,0 +1,50 @@
+<!-- main/templates/main/index.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OptiMealBuilder</title>
+    <link rel="stylesheet" href="{% static 'mainpage/css/style.css' %}">
+</head>
+<body>
+
+<div class="hamburger-menu">
+    <div class="logo">
+        <img src="{% static 'mainpage/images/logo1.png' %}" alt="Логотип">
+    </div>
+
+    <input id="menu-toggle" type="checkbox">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul class="menu-links">
+        <li><a href="/aboutus/">About us</a></li>
+        <li><a href="/tracker/">Calorie Tracker</a></li>
+        <li><a href="/food/">List of products</a></li>
+    </ul>
+</div>
+<div class="additional-text">
+        <h2>Welcome to a healthier life.</h2>
+    <ul class="health-options">
+        <li><span>&#10003;</span>Lose weight</li>
+        <li><span>&#10003;</span>Build muscle</li>
+        <li><span>&#10003;</span>Eat healthier</li>
+    </ul>
+</div>
+<div class="slider">
+    <!-- Контент слайдера -->
+</div>
+
+<div class="auth-buttons">
+    <!-- Кнопки авторизации -->
+</div>
+
+</body>
+</html>
+<div class="auth-buttons">
+    <!-- Кнопки авторизации -->
+</div>
+
+</body>
+</html>
+
+

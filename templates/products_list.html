@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список продуктов</title>
+</head>
+<body>
+    <h1>Список продуктов</h1>
+    <ul>
+        {% for food in food %}
+            <li>
+                {{ food.name }} - {{ food.carbs }} углеводов, {{ food.protein }} белков, {{ food.fats }} жиров
+                    {% csrf_token %}
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

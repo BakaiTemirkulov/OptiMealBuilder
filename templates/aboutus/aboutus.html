@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ about_info.title }}</title>
+    <!-- Подключение стилей или других ресурсов -->
+    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Навигационное меню или шапка сайта -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'mainpage' %}">Главная</a></li>
+                <li><a href="{% url 'aboutus' %}">О нас</a></li>
+                <!-- Другие пункты меню -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h1>{{ about_info.title }}</h1>
+            <p>{{ about_info.history }}</p>
+            <p>{{ about_info.mission }}</p>
+            <!-- Остальные поля модели AboutUs -->
+        </section>
+    </main>
+
+    <footer>
+        <!-- Футер сайта -->
+        <p>&copy; 2023 {{ about_info.title }}</p>
+    </footer>
+</body>
+</html>
