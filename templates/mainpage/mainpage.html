@@ -6,8 +6,26 @@
     <meta charset="UTF-8">
     <title>OptiMealBuilder</title>
     <link rel="stylesheet" href="{% static 'mainpage/css/style.css' %}">
+        <style>
+        /* Добавляем стили для кнопок */
+        .auth-buttons li a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff4500; /* Цвет фона */
+            color: #fff; /* Цвет текста */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease; /* Плавное изменение цвета фона */
+        }
+
+        .auth-buttons li a:hover {
+            background-color: #ff6a36; /* Цвет фона при наведении */
+        }
+    </style>
 </head>
-<body>
+<body style="background-image: url('{% static 'mainpage/images/background.png' %}');
+             background-size: cover;
+             background-repeat: no-repeat;">
 
 <div class="hamburger-menu">
     <div class="logo">
@@ -22,26 +40,23 @@
         <li><a href="/food/">List of products</a></li>
     </ul>
 </div>
+
 <div class="additional-text">
-        <h2>Welcome to a healthier life.</h2>
+    <h2>Welcome to a healthier life.</h2>
     <ul class="health-options">
         <li><span>&#10003;</span>Lose weight</li>
         <li><span>&#10003;</span>Build muscle</li>
         <li><span>&#10003;</span>Eat healthier</li>
     </ul>
 </div>
+
 <div class="slider">
     <!-- Контент слайдера -->
 </div>
 
 <div class="auth-buttons">
-    <!-- Кнопки авторизации -->
-</div>
-
-</body>
-</html>
-<div class="auth-buttons">
-    <!-- Кнопки авторизации -->
+    <li><a href="/registration/">Register</a></li>
+    <li><a href="/login/">Login</a></li>
 </div>
 
 </body>

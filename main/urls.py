@@ -13,7 +13,7 @@ urlpatterns = [
     path('food/', views.food_list, name="products_list"),
     path('', include('mainpage.urls')),
     path('aboutus/', views.aboutus, name='aboutus'),
-    path('registration/', include('registration.urls')),
+    path('', include('registration.urls')),
     path("/food_search/", views.food_search, name="food_search"),
 
 

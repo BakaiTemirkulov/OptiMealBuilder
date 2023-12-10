@@ -179,5 +179,45 @@
     color: #28a745; /* Цвет галочки */
 }
 
+.auth-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #FF5733; /* Change this to your preferred color */
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-button,
+.register-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button {
+    background-color: #3498db;
+    color: white;
+}
+
+.register-button
+
+body {
+    background-image: url("{% static 'mainpage/images/background.png' %}");
+    /* Замените 'mainpage/images/background.jpg' на путь к вашему изображению */
+    background-size: cover; /* Растягивает изображение на весь экран */
+    background-repeat: no-repeat; /* Запрещает повторение изображения */
+}
 
 
