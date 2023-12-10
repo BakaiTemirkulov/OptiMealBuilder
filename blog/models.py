@@ -10,6 +10,7 @@ class Food(models.Model):
 
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='blog/', blank=True)
+    description = models.TextField(blank=True)
     carbs = models.FloatField()
     protein = models.FloatField()
     fats = models.FloatField()

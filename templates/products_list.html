@@ -1,19 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Список продуктов</title>
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        li {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            flex-basis: calc(30.33% - 20px);
+        }
+        img {
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .a1 {
+            display: inline-block;
+            padding: 8px 16px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .a1:hover {
+            background-color: #45a049;
+        }
+
+        /* Стили для поисковой формы */
+        .search-form {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+        .search-form input[type="search"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+        .search-form input[type="search"]:focus {
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            width: 150px;
+        }
+        .search-form button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .search-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>Список продуктов</h1>
-    <ul>
-        {% for food in food %}
-            <li>
-                {{ food.name }} - {{ food.carbs }} углеводов, {{ food.protein }} белков, {{ food.fats }} жиров
-                    {% csrf_token %}
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
+    <form action="{% url 'food_search' %}" method="GET" class="search-form" role="search">
+        <input name="q" type="search" placeholder="Enter the name of the food" aria-label="Search">
+        <button type="submit">Поиск</button>
+    </form>
+
+    <h1>Product List</h1>
+
+    {% if foods %}
+        <ul>
+            {% for food in foods %}
+                <li>
+                    <h2>{{ food.name }}</h2>
+                    {% if food.image %}
+                        <img src="{{ food.image.url }}" alt="{{ food.name }} image" width="100" height="100">
+                    {% endif %}
+                    <p>Carbs: {{ food.carbs }}</p>
+                    <p>Protein: {{ food.protein }}</p>
+                    <p>Fats: {{ food.fats }}</p>
+                    <p>Calories: {{ food.calories }}</p>
+                    <a href="/food/{{food.id}}/" class="a1">Details</a>
+                    <a href="/food/{{food.id}}/update/" class="a1" style="margin-right: 10px;">Update food</a>
+                    <a href="/food/{{food.id}}/delete/" class="a1">Delete food</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No available products.</p>
+    {% endif %}
+
+    <!-- New buttons for Create, Update, and Delete -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/food_create/" class="a1" style="margin-right: 10px;">Create food</a>
+        <a href="/food/" class="a1" style="margin-right: 10px;">To the list</a>
+    </div>
 </body>
 </html>
+
+
+
+

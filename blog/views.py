@@ -1,37 +1,9 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from . import models, forms
 from .models import Food, Consume
-from django.contrib.auth.decorators import login_required
-
-
-@login_required
-def calorie_tracker(request):
-    user = request.user
-    consumed_foods = Consume.objects.filter(user=user)
-
-    total_carbs = total_protein = total_fats = total_calories = 0
-
-    for consumed_food in consumed_foods:
-        food = consumed_food.food_consumed
-        total_carbs += food.carbs
-        total_protein += food.protein
-        total_fats += food.fats
-        total_calories += food.calories
-
-    cal_per = (total_calories / 2000) * 100
-
-    context = {
-        'consumed_foods': consumed_foods,
-        'totalCarbs': total_carbs,
-        'totalProtien': total_protein,
-        'totalFats': total_fats,
-        'totalCalories': total_calories,
-        'calPer': cal_per,
-    }
-
-    return render(request, 'post.html', context)
-
-
+from django.views import generic
+from django.urls import reverse
 
 def hello(request):
     return HttpResponse('<h1>Hello World</h1>')
@@ -60,8 +32,52 @@ def delete_consume(request, id):
     return render(request, 'delete.html')
 
 def food_list(request):
-    food = Food.objects.all()
-    return render(request, 'products_list.html', {'food': food})
+    foods = Food.objects.all()
+    return render(request, 'products_list.html', {'foods': foods})
+
+class FoodDetailView(generic.DetailView):
+    template_name = 'food_detail.html'
+
+    def get_object(self, **kwargs):
+        food_id = self.kwargs.get('id')
+        return get_object_or_404(models.Food, id=food_id)
+
+class FoodCreateView(generic.CreateView):
+    template_name = 'CRUD/food_create.html'
+    model = models.Food
+    form_class = forms.FoodForm
+    success_url = "/food/"
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super(FoodCreateView, self).form_valid(form=form)
+
+class FoodDeleteView(generic.DeleteView):
+    template_name = "CRUD/food_delete.html"
+    success_url = "/food/"
+
+    def get_object(self, **kwargs):
+        food_id = self.kwargs.get("id")
+        return get_object_or_404(models.Food, id=food_id)
+
+class FoodUpdateView(generic.UpdateView):
+    template_name = "CRUD/food_update.html"
+    form_class = forms.FoodForm
+    success_url = "/food/"
+
+    def get_object(self, **kwargs):
+        food_id = self.kwargs.get("id")
+        return get_object_or_404(models.Food, id=food_id)
+
+    def form_valid(self, form):
+        return super(FoodUpdateView, self).form_valid(form=form)
+
+def food_search(request):
+    query = request.GET.get('q')
+    foods = Food.objects.filter(name__icontains=query) if query else Food.objects.all()
+    return render(request, 'products_list.html', {'foods': foods})
+
+
 
 def aboutus(request):
     about_info = AboutUs.objects.first()

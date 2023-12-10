@@ -1,7 +1,8 @@
 from django import forms
-from .models import Food
+from . import models
 
-class FoodConsumedForm(forms.ModelForm):
+class FoodForm(forms.ModelForm):
     class Meta:
-        model = Food
-        fields = ['name']  # Добавьте другие поля, если нужно
+        model = models.Food
+        fields = "__all__"
+

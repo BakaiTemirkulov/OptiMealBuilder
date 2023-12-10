@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Create</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            background-color: #ffcc99; /* Soft orange background */
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.5s ease;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"], input[type="file"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px; /* Softer input corners */
+            border: 1px solid #ccc;
+            transition: box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="file"]:focus {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Highlight on focus */
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px; /* Rounded button corners */
+            cursor: pointer;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        button[type="submit"] {
+            background-color: #3498db; /* Soft blue */
+        }
+        button[type="reset"] {
+            background-color: #e74c3c; /* Soft red */
+        }
+        button[type="submit"]:hover,
+        button[type="reset"]:hover {
+            transform: scale(1.1);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Create food</h1>
+        <form action="/food_create/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Create</button>
+            <button type="reset">Clear</button>
+        </form>
+    </div>
+</body>
+</html>

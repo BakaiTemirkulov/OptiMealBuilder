@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'blog',
     'mainpage',
     'aboutus',
+    'registration'
 ]
 
 MIDDLEWARE = [

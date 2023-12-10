@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FoodDetail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+        .food-info {
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 5px solid #ffffff;
+            transition: transform 0.3s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        .nutrition-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .nutrition-label {
+            font-weight: bold;
+            color: #555555;
+        }
+        /* Colors for nutrients */
+        .carbs {
+            color: #e74c3c; /* Red color for carbohydrates */
+        }
+        .fats {
+            color: #f39c12; /* Slightly different shade of yellow for fats */
+        }
+        .protein {
+            color: #3498db; /* Blue color for protein */
+        }
+        /* Styles for "Back to list" button */
+        .back-btn {
+            display: inline-block;
+            width: 120px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #2ecc71;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function() {
+            const container = document.querySelector('.container');
+            container.style.opacity = '1';
+            container.style.transform = 'translateY(0)';
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>{{object.name}}</h1>
+        <div class="food-info">
+            <img src="{{ object.image.url }}" alt="{{ object.name }} image" width="200" height="200">
+        </div>
+        <div class="nutrition-info">
+            <p class="nutrition-label">Nutritional Information:</p>
+            <p><span class="carbs">Carbohydrates:</span> {{object.carbs}}</p>
+            <p><span class="fats">Fats:</span> {{object.fats}}</p>
+            <p><span class="protein">Protein:</span> {{object.protein}}</p>
+            <p><span class="description"></span> {{object.description}}</p>
+        </div>
+        <a href="/food/" class="back-btn">Back to list</a>
+    </div>
+</body>
+</html>
+
