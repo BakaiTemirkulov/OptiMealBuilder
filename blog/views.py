@@ -4,6 +4,9 @@ from . import models, forms
 from .models import Food, Consume
 from django.views import generic
 from django.urls import reverse
+from .forms import FoodForm
+
+
 
 def hello(request):
     return HttpResponse('<h1>Hello World</h1>')
@@ -34,6 +37,9 @@ def delete_consume(request, id):
 def food_list(request):
     foods = Food.objects.all()
     return render(request, 'products_list.html', {'foods': foods})
+
+
+
 
 class FoodDetailView(generic.DetailView):
     template_name = 'food_detail.html'
@@ -79,9 +85,7 @@ def food_search(request):
 
 
 
-def aboutus(request):
-    about_info = AboutUs.objects.first()
-    return render(request, 'about_us_template.html', {'about_info': about_info})
+
 
 
 

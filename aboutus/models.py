@@ -8,6 +8,7 @@ class AboutUs(models.Model):
     team = models.TextField(blank=True, null=True)
     contact_info = models.TextField(blank=True, null=True)
     achievements = models.TextField(blank=True, null=True)
+    images = models.ImageField(blank=True, null=True)
     created_at = models.DateTimeField(blank=True, null=True, auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, null=True, auto_now=True)
 

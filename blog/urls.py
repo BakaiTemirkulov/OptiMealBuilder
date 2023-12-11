@@ -12,5 +12,6 @@ urlpatterns = [
     path('food/<int:id>/update/', views.FoodUpdateView.as_view()),
     path('food_create/', views.FoodCreateView.as_view()),
     path("/food_search/", views.food_search, name="food_search"),
+
 ]
 

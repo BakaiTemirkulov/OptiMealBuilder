@@ -1,11 +1,100 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{ about_info.title }}</title>
     <!-- Подключение стилей или других ресурсов -->
-    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/css/aboutus.css' %}">
+    <style>body {
+    background-color: #333336;
+    color: white;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Header styles */
+header {
+    background-color: 31304D;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ff4500;
+}
+
+/* Main section styles */
+.about-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: 161A30;
+}
+
+.about-section h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.about-section p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: 092635;
+}
+
+.about-section img {
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: 31304D;
+    color: #888;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+    </style>
+
+
 </head>
 <body>
     <header>
@@ -13,7 +102,6 @@
         <nav>
             <ul>
                 <li><a href="{% url 'mainpage' %}">Главная</a></li>
-                <li><a href="{% url 'aboutus' %}">О нас</a></li>
                 <!-- Другие пункты меню -->
             </ul>
         </nav>
@@ -24,6 +112,14 @@
             <h1>{{ about_info.title }}</h1>
             <p>{{ about_info.history }}</p>
             <p>{{ about_info.mission }}</p>
+            <p>{{ about_info.values }}</p>
+            <p>{{ about_info.team }}</p>
+            <p>{{ about_info.contact_info }}</p>
+            <p>{{ about_info.achievements }}</p>
+            <img src="{{ about_info.images }}" style="width: 350px;height: 350px; border-radius: 30px;">
+            <p>{{ about_info.created_at }}</p>
+            <p>{{ about_info.updated_at }}</p>
+
             <!-- Остальные поля модели AboutUs -->
         </section>
     </main>

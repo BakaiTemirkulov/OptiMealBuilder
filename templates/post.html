@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -38,17 +40,21 @@
             </div>
         </div>
 
-
-        <br>
+        <br><br>
 
         <h3 style="text-align:center">Calorie Goal</h3>
-        <br>
         <div class="row">
             <div class="col-md-9 offset-1">
+                <div class="input-group mb-3">
+                    <input id="calorieGoalInput" type="number" class="form-control" placeholder="Enter calorie goal">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" onclick="updateCalorieGoal()">Set</button>
+                    </div>
+                </div>
                 <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0"
-                        aria-valuemin="0" aria-valuemax="0"></div>
-
+                    <div id="calorieProgressBar" class="progress-bar bg-success" role="progressbar" aria-valuenow="0"
+                        aria-valuemin="0" aria-valuemax="100">0%
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,7 +177,21 @@
         },
 
     });
+            function updateCalorieGoal() {
+            var calorieGoalInput = document.getElementById("calorieGoalInput");
+            var calorieGoal = parseInt(calorieGoalInput.value);
+
+            if (!isNaN(calorieGoal)) {
+                var calorieProgressBar = document.getElementById("calorieProgressBar");
+                var calPer = (calories / calorieGoal) * 100;
+                calPer = Math.min(calPer, 100); // Убедимся, что не превышаем 100%
+
+                calorieProgressBar.style.width = calPer + "%";
+                calorieProgressBar.innerHTML = calPer.toFixed(2) + "%";
+            }
+        }
 
 
 </script>
 </html>
+
