@@ -7,7 +7,7 @@
     <title>OptiMealBuilder</title>
     <link rel="stylesheet" href="{% static 'mainpage/css/style.css' %}">
         <style>
-        /* Добавляем стили для кнопок */
+                    /* Добавляем стили для кнопок */
         .auth-buttons li a {
             display: inline-block;
             padding: 10px 20px;
@@ -20,6 +20,49 @@
 
         .auth-buttons li a:hover {
             background-color: #ff6a36; /* Цвет фона при наведении */
+            transform: scale(1.1); /* Увеличение размера при наведении */
+        }
+
+        /* Добавляем анимацию для текста "Welcome to a healthier life." */
+        .additional-text h2 {
+            animation: slideInRight 1s ease-in-out forwards;
+        }
+
+        /* Добавляем анимацию для списка "Lose weight", "Build muscle", "Eat healthier" */
+        .health-options li {
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards;
+            animation-delay: 0.5s; /* Задержка перед анимацией */
+        }
+
+        /* Анимация для слайдера - добавьте свои стили и анимации для контента слайдера */
+        .slider {
+            /* стили слайдера */
+        }
+
+
+        /* Ключевые кадры для анимации текста "Welcome to a healthier life." */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Ключевые кадры для анимации списка "Lose weight", "Build muscle", "Eat healthier" */
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -38,6 +81,7 @@
         <li><a href="/aboutus/">About us</a></li>
         <li><a href="/tracker/">Calorie Tracker</a></li>
         <li><a href="/food/">List of products</a></li>
+        <li><a href="/exercises/">Exercises</a></li>
     </ul>
 </div>
 
@@ -55,11 +99,18 @@
 </div>
 
 <div class="auth-buttons">
-    <li><a href="/registration/">Register</a></li>
-    <li><a href="/login/">Login</a></li>
+    {% if user.is_authenticated %}
+        <li id="userWelcome">Welcome, {{ user.username }}</li>
+        <li><a href="{% url 'users:logout' %}">Logout</a></li>
+    {% else %}
+        <li><a href="/registration/">Register</a></li>
+        <li><a href="/login/">Login</a></li>
+    {% endif %}
 </div>
 
+
 </body>
+
 </html>
 
 

@@ -1,0 +1,81 @@
+<!-- exercises/templates/exercise_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise Detail</title>
+    <style>
+        /* Обновленные стили */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ff4500;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        iframe {
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .exercise-info {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="exercise-info">
+        <h1>{{ exercise.name }}</h1>
+        <p>{{ exercise.description }}</p>
+        <p><strong>Difficulty:</strong> {{ exercise.difficulty }}</p>
+        <p><strong>Category:</strong> {{ exercise.category }}</p>
+        <p><strong>Effectivness🔥:</strong> {{ exercise.effectiveness }} calories in 30 minutes</p>
+        <a href="{{ exercise.video_url }}" target="_blank">Watch guide</a>
+
+        {% if exercise.image %}
+            <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}">
+        {% endif %}
+    </div>
+</body>
+</html>
+
+

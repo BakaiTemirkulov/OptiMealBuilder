@@ -13,8 +13,9 @@ urlpatterns = [
     path('food/', views.food_list, name="products_list"),
     path('', include('mainpage.urls')),
     path('', include('registration.urls')),
-    path("/food_search/", views.food_search, name="food_search"),
+    path("food_search/", views.food_search, name="food_search"),
     path('', include('aboutus.urls')),
+    path('exercises/', include('exercises.urls')),
 
 
 ]

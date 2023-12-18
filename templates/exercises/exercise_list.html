@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise List</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            animation: fadeInAnimation 0.5s ease-in-out; /* Анимация появления страницы */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+            animation: slideInDown 0.5s ease-out; /* Анимация появления заголовка */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            animation: scaleInAnimation 0.5s ease-out; /* Анимация появления списка */
+        }
+        li {
+            width: 300px;
+            margin: 15px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInAnimation 0.5s ease-in-out; /* Анимация появления элементов списка */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            animation: scaleInAnimation 0.5s ease-out; /* Анимация появления изображений */
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Анимации */
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes scaleInAnimation {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInAnimation {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+                a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+        }
+        a:hover {
+            color: #ff4500; /* Изменение цвета при наведении */
+        }
+
+        /* Динамичность изображений */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease; /* Плавное изменение размера при наведении */
+        }
+        img:hover {
+            transform: scale(1.05); /* Увеличение размера при наведении */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="menu-main">
+            <li><a href="{% url 'mainpage' %}" class="current">Main</a></li>
+            <li><a href="{% url 'aboutus' %}">About us</a></li>
+            <li><a href="{% url 'products_list' %}">List of products</a></li>
+            <li><a href="/tracker/">Tracker</a></li>
+        </ul>
+    </nav>
+    <h1>Exercise List</h1>
+    <ul>
+        {% for exercise in exercises %}
+        <li>
+            <div class="exercise-section">
+                <img src="{{ exercise.image.url }}" alt="{{ exercise.name }} image">
+                <h2><a href="{% url 'exercise_detail' exercise.id %}">{{ exercise.name }}</a></h2>
+                <p>Category: {{ exercise.category }}</p>
+                <!-- Добавим описание или другие данные об упражнении -->
+                <!-- И другие детали по желанию -->
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

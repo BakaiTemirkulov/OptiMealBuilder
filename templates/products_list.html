@@ -61,6 +61,7 @@
             border: none;
             outline: none;
             transition: all 0.3s ease-in-out;
+            background-color: #ccc; /* Новый цвет */
         }
         .search-form input[type="search"]:focus {
             background-color: #fff;
@@ -79,14 +80,142 @@
         .search-form button:hover {
             background-color: #45a049;
         }
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');
+.menu-main {
+    list-style: none;
+    padding: 0 30px;
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    background: white;
+}
+.menu-main:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    bottom: -20px;
+    background: radial-gradient(white 0%, white 70%, rgba(255,255,255,0) 70%, rgba(255,255,255,0) 100%) 0 -10px;
+    background-size: 20px 20px;
+    background-repeat: repeat-x;
+}
+.menu-main li {display: inline-block;}
+.menu-main a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 15px;
+    padding: 10px 30px;
+    font-family: 'PT Sans Caption', sans-serif;
+    color: #777777;
+    transition: .3s linear;
+    position: relative;
+}
+    .menu-main a:before,
+.menu-main a:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 3px);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #F58262;
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+    .menu-main a:before {left: 5px;}
+    .menu-main a:after {right: 5px;}
+    .menu-main a.current:before,
+    .menu-main a.current:after,
+    .menu-main a:hover:before,
+    .menu-main a:hover:after {opacity: 1;}
+    .menu-main a.current,
+    .menu-main a:hover {color: #F58262;}
+    @media(max-width:680px) {
+    .menu-main li {display: block;}
+    }
+    nav {
+    background-color: #A4C9B8;}
+
+        .a1 {
+    /* Добавление анимации */
+    transition: all 0.3s ease-in-out;
+}
+
+.a1:hover {
+    /* Изменение фона при наведении */
+    background-color: #45a049;
+    transform: scale(1.1); /* Масштабирование при наведении */
+}
+
+        h1 {
+    /* Добавление анимации */
+    transition: color 0.3s ease-in-out;
+}
+
+h1:hover {
+    /* Изменение цвета при наведении */
+    color: #F58262;
+}
+
+        li {
+    /* Добавление анимации */
+    transition: all 0.3s ease-in-out;
+}
+
+li:hover {
+    /* Изменение тени и масштабирование при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+        img {
+    /* Добавление анимации */
+    transition: all 0.3s ease-in-out;
+}
+
+img:hover {
+    /* Масштабирование изображения при наведении */
+    transform: scale(1.1);
+}
+
+        li {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+li:nth-child(odd) {
+    transform: translateX(-50px);
+}
+
+li:nth-child(even) {
+    transform: translateX(50px);
+}
+
+li.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
     </style>
 </head>
 <body>
     <form action="{% url 'food_search' %}" method="GET" class="search-form" role="search">
         <input name="q" type="search" placeholder="Enter the name of the food" aria-label="Search">
-        <button type="submit">Поиск</button>
+        <button type="submit">Search</button>
     </form>
-
+    <nav>
+        <ul class="menu-main">
+            <li><a href="{% url 'mainpage' %}" class="current">Main</a></li>
+            <li><a href="{% url 'aboutus' %}">About us</a></li>
+            <li><a href="{% url 'products_list' %}">List of products</a></li>
+            <li><a href="/tracker/">Tracker</a></li>
+            <li><a href="{% url 'mainpage' %}">Контакты</a></li>
+        </ul>
+    </nav>
     <h1>Product List</h1>
 
     {% if foods %}
@@ -117,6 +246,17 @@
         <a href="/food/" class="a1" style="margin-right: 10px;">To the list</a>
     </div>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const listItems = document.querySelectorAll("ul li");
+    listItems.forEach(function(item, index) {
+        setTimeout(function() {
+            item.classList.add("animate");
+        }, index * 100); // Задержка для появления каждого элемента списка
+    });
+});
+
+</script>
 </html>
 
 

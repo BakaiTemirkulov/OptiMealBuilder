@@ -1,0 +1,16 @@
+<!-- exercises/templates/category_exercises.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Exercises</title>
+</head>
+<body>
+    <h1>{{ category.name }} Exercises</h1>
+    <ul>
+        {% for exercise in exercises %}
+            <li><a href="{% url 'exercise_detail' exercise.id %}">{{ exercise.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
