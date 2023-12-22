@@ -11,7 +11,7 @@ urlpatterns = [
     path('tracker/', views.index, name="index"),
     path('delete/<int:id>/', views.delete_consume, name="delete"),
     path('food/', views.food_list, name="products_list"),
-    path('', include('mainpage.urls')),
+    path('mainpage/', include('mainpage.urls')),
     path('', include('registration.urls')),
     path("food_search/", views.food_search, name="food_search"),
     path('', include('aboutus.urls')),

@@ -84,10 +84,13 @@
     background-color: #f0f0f0;
 }
 
+
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
 }
+
+/* Стили для кнопки меню */
 
 .menu-links {
     display: none;

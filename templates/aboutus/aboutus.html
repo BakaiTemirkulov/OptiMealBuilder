@@ -31,9 +31,8 @@
             <p>{{ about_info.team }}</p>
             <p>{{ about_info.contact_info }}</p>
             <p>{{ about_info.achievements }}</p>
-            <img src="{{ about_info.images }}" style="width: 350px;height: 350px; border-radius: 30px;">
-            <p>{{ about_info.created_at }}</p>
-            <p>{{ about_info.updated_at }}</p>
+            <img src="{% static 'aboutus/images/logo2.jpg' %}" style="width: 350px;height: 350px; border-radius: 30px;">
+
 
             <!-- Остальные поля модели AboutUs -->
         </section>
@@ -45,4 +44,3 @@
     </footer>
 </body>
 </html>
-

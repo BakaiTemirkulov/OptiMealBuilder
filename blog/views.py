@@ -6,8 +6,6 @@ from django.views import generic
 from django.urls import reverse
 from .forms import FoodForm
 
-
-
 def hello(request):
     return HttpResponse('<h1>Hello World</h1>')
 
@@ -25,7 +23,7 @@ def index(request):
         foods = Food.objects.all()
     consumed_food = Consume.objects.filter(user=request.user)
 
-    return render(request, 'post.html', {'foods': foods, 'consumed_food': consumed_food})
+    return render(request, 'tracker.html', {'foods': foods, 'consumed_food': consumed_food})
 
 def delete_consume(request, id):
     consumed_food = Consume.objects.get(id=id)

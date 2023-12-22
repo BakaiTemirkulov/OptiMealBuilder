@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class AboutUs(models.Model):
     title = models.CharField(max_length=200)
     history = models.TextField(blank=True, null=True)
