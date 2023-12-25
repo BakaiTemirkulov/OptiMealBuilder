@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FoodDetail</title>
+    <title>Food Detail</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -88,7 +89,9 @@
         });
     </script>
 </head>
-<body>
+<body style="background-image: url('{% static 'mainpage/images/List.jpg' %}');
+             background-size: cover;
+             background-repeat: no-repeat;">
     <div class="container">
         <h1>{{object.name}}</h1>
         <div class="food-info">

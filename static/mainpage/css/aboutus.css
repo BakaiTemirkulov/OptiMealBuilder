@@ -2,6 +2,7 @@
 
 /* Body styles */
 body {
+    background-color: #333336;
     color: white;
     font-size: 16px;
     font-family: Arial, sans-serif;
@@ -46,9 +47,10 @@ nav ul li a:hover {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f7f5f0;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: 161A30;
 }
 
 .about-section h1 {
@@ -59,11 +61,11 @@ nav ul li a:hover {
 
 .about-section p {
     margin-bottom: 10px;
+    line-height: 1.6;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #f7f5f0;
-    color: #1a1b1c;
+    background-color: 092635;
 }
 
 .about-section img {
@@ -77,223 +79,14 @@ nav ul li a:hover {
 /* Footer styles */
 footer {
     text-align: center;
-    padding: 15px 0;
-    background-color: #2D303C;
-    color: #fff;
+    padding: 20px 0;
+    background-color: 31304D;
+    color: #888;
     font-size: 14px;
     position: fixed;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #A4C9B8;
-    background-size: cover;
-}
-
-.logo img {
-    width: 300px;
-    height: auto;
-    margin-left: 128px;
-}
-
-.menu ul {
-    list-style: none;
-    display: flex;
-}
-
-.menu ul li {
-    margin-right: 20px;
-}
-
-/* Стили для Slider */
-.slider {
-    /* Стили для слайдера */
-}
-
-/* Стили для кнопок регистрации и авторизации */
-.auth-buttons {
-    margin-top: 20px;
-}
-
-.btn {
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-register {
-    background-color: #28a745;
-}
-
-.btn-login {
-    background-color: #007bff;
-}
-
-/* Дополнительные стили по необходимости */
-
-/* Стили для иконки гамбургера */
-.hamburger {
-    position: relative;
-    display: inline-block;
-    width: 1.25em;
-    height: 0.8em;
-    margin-right: 0.3em;
-    border-top: 0.2em solid #fff;
-    border-bottom: 0.2em solid #fff;
-}
-
-.hamburger:before {
-    content: "";
-    position: absolute;
-    top: 0.3em;
-    left: 0px;
-    width: 100%;
-    border-top: 0.2em solid #fff;
-}
-
-/* Здесь перенесены стили из HTML */
-
-/* Стили для гамбургера */
-.hamburger-menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #2D303C;
-}
-
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.menu-links {
-    display: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#menu-toggle {
-    display: none;
-}
-
-#menu-toggle:checked ~ .menu-links {
-    display: block;
-}
-
-.menu-links li {
-    margin-bottom: 10px;
-}
-
-.menu-links a {
-    text-decoration: none;
-    color: #333;
-}
-/* Дополнительные стили для вашего сайта */
-/* ... */
-
-/* Основной стиль для надписи OptiMealBuilder */
-.logo span {
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333; /* Цвет текста */
-    text-transform: uppercase; /* Преобразование текста в верхний регистр */
-    letter-spacing: 2px; /* Межбуквенный интервал */
-    margin-left: 10px; /* Отступ слева */
-}
-
-/* Стили для ссылок в гамбургер-меню */
-.menu-links li a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #333; /* Цвет текста ссылок */
-    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
-}
-
-.menu-links li a:hover {
-    color: #ff4500; /* Цвет текста при наведении */
-    background-color: #f4f4f4; /* Фон при наведении */
-}
-
-.additional-text {
-    font-family: Arial, sans-serif;
-    color: #333;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 70vh; /* Высота блока для центрирования по вертикали */
-}
-
-.additional-text h2 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.health-options {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    margin-top: 20px; /* Отступ сверху между заголовком и списком */
-}
-
-.health-options li {
-    font-size: 24px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.health-options li span {
-    display: inline-block;
-    width: 30px;
-    text-align: center;
-    margin-right: 10px;
-    color: #28a745; /* Цвет галочки */
-}
-
-.auth-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #FF5733; /* Change this to your preferred color */
-    transition: background-color 0.3s ease;
-}
-
-.auth-buttons {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.login-button,
-.register-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-button {
-    background-color: #3498db;
-    color: white;
 }
 
 

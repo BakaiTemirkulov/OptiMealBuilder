@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +72,9 @@
         }
     </style>
 </head>
-<body>
+<body style="background-image: url('{% static 'mainpage/images/List.jpg' %}');
+             background-size: cover;
+             background-repeat: no-repeat;">
     <div>
         <h1>Create food</h1>
         <form action="/food_create/" method="POST" enctype="multipart/form-data">

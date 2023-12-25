@@ -1,32 +1,65 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Users</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f7f7f7;
             color: #333;
             text-align: center;
+            animation: fadeIn 0.5s ease-in-out; /* Анимация появления */
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         h1 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #0066cc;
+            animation: slideInDown 1s ease-in-out; /* Анимация появления сверху */
+        }
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
         }
         ol {
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 1s ease-in-out; /* Анимация появления */
         }
         li {
-            margin: 10px 0;
-            padding: 5px;
-            border: 1px solid #ccc;
+            padding: 10px;
             border-radius: 5px;
             background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 0.5s ease-in-out; /* Анимация появления */
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
         }
         form {
             margin-top: 20px;
+            animation: fadeIn 1s ease-in-out; /* Анимация появления */
         }
         button {
             padding: 10px 20px;
@@ -35,14 +68,29 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            animation: pulse 1s ease-in-out infinite; /* Анимация пульсации */
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
         button:hover {
             background-color: #0055aa;
+            animation: none; /* Отключение пульсации при наведении */
         }
     </style>
 </head>
-<body>
-    <a href="{% url 'mainpage' %}"><button>Home</button></a>
+<body style="background-image: url('{% static 'mainpage/images/Users.jpg' %}');
+             background-size: cover;
+             background-repeat: no-repeat;">
+    <a href="{% url 'mainpage' %}"><button>Main Page</button></a>
     <h1>Welcome, you've entered!</h1>
     <ol>
         {% for i in object_list %}
@@ -57,3 +105,4 @@
     </form>
 </body>
 </html>
+

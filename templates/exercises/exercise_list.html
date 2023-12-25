@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #000066;
             margin-top: 20px;
             animation: slideInDown 0.5s ease-out; /* Анимация появления заголовка */
         }
@@ -101,7 +102,10 @@
         }
     </style>
 </head>
-<body>
+<body style="background-image: url('{% static 'mainpage/images/exer.jpg' %}');
+             background-size: cover;
+             background-repeat: no-repeat;
+             background-attachment: fixed;">
     <nav>
         <ul class="menu-main">
             <li><a href="{% url 'mainpage' %}" class="current">Main</a></li>

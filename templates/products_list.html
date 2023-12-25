@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,7 @@
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #FFFFFF;
         }
         ul {
             list-style: none;
@@ -202,7 +203,10 @@ li.animate {
 
     </style>
 </head>
-<body>
+<body style="background-image: url('{% static 'mainpage/images/List.jpg' %}');
+             background-size: cover;
+             background-repeat: no-repeat;
+             background-attachment: fixed;">
     <form action="{% url 'food_search' %}" method="GET" class="search-form" role="search">
         <input name="q" type="search" placeholder="Enter the name of the food" aria-label="Search">
         <button type="submit">Search</button>
@@ -213,7 +217,6 @@ li.animate {
             <li><a href="{% url 'aboutus' %}">About us</a></li>
             <li><a href="{% url 'products_list' %}">List of products</a></li>
             <li><a href="/tracker/">Tracker</a></li>
-            <li><a href="{% url 'mainpage' %}">Контакты</a></li>
         </ul>
     </nav>
     <h1>Product List</h1>
