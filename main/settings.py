@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'aboutus',
     'registration',
     'exercises',
+    'results',
 ]
 
 MIDDLEWARE = [
