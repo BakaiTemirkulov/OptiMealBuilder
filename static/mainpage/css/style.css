@@ -107,41 +107,7 @@
     display: block;
 }
 
-.menu-links li {
-    margin-bottom: 10px;
-}
 
-.menu-links a {
-    text-decoration: none;
-    color: #333;
-}
-/* Дополнительные стили для вашего сайта */
-/* ... */
-
-/* Основной стиль для надписи OptiMealBuilder */
-.logo span {
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333; /* Цвет текста */
-    text-transform: uppercase; /* Преобразование текста в верхний регистр */
-    letter-spacing: 2px; /* Межбуквенный интервал */
-    margin-left: 10px; /* Отступ слева */
-}
-
-/* Стили для ссылок в гамбургер-меню */
-.menu-links li a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #333; /* Цвет текста ссылок */
-    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
-}
-
-.menu-links li a:hover {
-    color: #ff4500; /* Цвет текста при наведении */
-    background-color: #f4f4f4; /* Фон при наведении */
-}
 
 .additional-text {
     font-family: Arial, sans-serif;

@@ -50,7 +50,7 @@ nav ul li a:hover {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: 161A30;
+    background-color: white;
 }
 
 .about-section h1 {
@@ -61,11 +61,10 @@ nav ul li a:hover {
 
 .about-section p {
     margin-bottom: 10px;
-    line-height: 1.6;
-    border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: 092635;
+    background-color: ;
+    color: black;
 }
 
 .about-section img {
@@ -83,10 +82,51 @@ footer {
     background-color: 31304D;
     color: #888;
     font-size: 14px;
-    position: fixed;
     bottom: 0;
     width: 100%;
+    height: 20px;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    color: black;
+    padding: 10px 20px;
+    gap: 20px;
+}
+
+.logo img {
+    width: 300px;
+    height: auto;
+    margin-left: 128px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+
+}
+
+.menu-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu-links li {
+    margin-right: 20px;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: black;
 }
 
 

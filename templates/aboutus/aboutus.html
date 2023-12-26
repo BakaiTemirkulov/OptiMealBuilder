@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>{{ about_info.title }}</title>
     <!-- Подключение стилей или других ресурсов -->
-    <link rel="stylesheet" href="{% static 'mainpage/css/aboutus.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage/aboutus.css' %}">
 </head>
 <body style="background-image: url(/static/mainpage/images/background.png);
             background-size: cover;
@@ -14,10 +14,9 @@
             <img src="{% static 'mainpage/images/logo1.png' %}" alt="Логотип">
         </div>
 
-        <input id="menu-toggle" type="checkbox">
-        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
         <ul class="menu-links">
-            <li><a href="/aboutus/">About us</a></li>
+            <li><a href="{% url 'mainpage' %}">Main</a></li>
             <li><a href="/tracker/">Calorie Tracker</a></li>
             <li><a href="/food/">List of products</a></li>
             <li><a href="/stories/">Success Stories</a></li>
@@ -32,8 +31,7 @@
             <p>{{ about_info.team }}</p>
             <p>{{ about_info.contact_info }}</p>
             <p>{{ about_info.achievements }}</p>
-            <img src="{% static 'aboutus/images/logo2.jpg' %}" style="width: 350px;height: 350px; border-radius: 30px;">
-
+            <img src="{{ about_info.images.url }}" style="width: 300px; height: 300px; border-radius: 30px;">
 
             <!-- Остальные поля модели AboutUs -->
         </section>
